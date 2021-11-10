@@ -1,0 +1,14 @@
+.navbar-wrapper {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  box-shadow: 0px 6px 23px -5px rgba(0, 0, 0, 0.1);
+}
+.navbar-container {
+  max-width: 85%;
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}

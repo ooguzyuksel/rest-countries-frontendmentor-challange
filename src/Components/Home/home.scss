@@ -1,0 +1,112 @@
+.homepage-wrapper {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.homepage-wrapper-form-area {
+  max-width: 85%;
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  height: 150px;
+}
+
+.homepage-wrapper-card-area {
+  max-width: 85%;
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 25px;
+
+  .card-info {
+    display: flex;
+    flex-direction: column;
+
+    & > b {
+      margin: 10px 0;
+    }
+
+    & > small {
+      margin: 2px 0;
+      font-size: 0.7rem;
+    }
+  }
+}
+
+.homepage-card-item {
+  width: 250px;
+  border-radius: 5px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  box-shadow: 0px 10px 27px -9px rgba(0, 0, 0, 0.5);
+}
+
+.country-flag {
+  max-width: 100%;
+}
+
+// TOP FORM AREA
+
+.form-input-area {
+  position: relative;
+  display: flex;
+  min-width: 50%;
+  padding: 15px 0;
+  border-radius: 7px;
+  box-shadow: 0px 10px 27px -9px rgba(0, 0, 0, 0.5);
+
+  // Left Input Side
+  & > input {
+    border: none;
+
+    &:focus {
+      outline: none;
+    }
+  }
+
+  // Right Dropdown Side
+}
+
+.countries {
+  padding: 15px 50px;
+  border-radius: 7px;
+  box-shadow: 0px 10px 27px -9px rgba(0, 0, 0, 0.5);
+  border: none;
+  &:focus {
+    outline: none;
+  }
+}
+
+.fa-search {
+  padding: 0 15px 0 15px;
+}
+
+// Responsive Media Queries
+@media only screen and (max-width: 769px) {
+  .homepage-wrapper-card-area {
+    justify-content: center;
+  }
+  .homepage-wrapper-form-area {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start;
+    height: 150px;
+  }
+  .form-input-area {
+    width: 100%;
+    box-shadow: 0px 10px 27px -9px rgba(0, 0, 0, 0.5);
+    margin: 15px 0;
+
+    & > input {
+      width: 99%;
+    }
+  }
+}

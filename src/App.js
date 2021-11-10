@@ -1,12 +1,19 @@
-import "./App.css";
-import TestComponent from "./Components/TestComponent/TestComponent";
+import "./App.scss";
+import Navbar from "./Components/Navbar/Navbar";
+import { BrowserRouter as Router, Routes, Route, Link } from "react-router-dom";
+import Home from "./Components/Home/Home";
 
 function App() {
   return (
-    <div className="App">
-      <h1>Test content</h1>
-      <TestComponent />
-    </div>
+    <>
+      <Navbar />
+
+      <Router>
+        <Routes>
+          <Route exact path="/" element={<Home />} />
+        </Routes>
+      </Router>
+    </>
   );
 }
 
