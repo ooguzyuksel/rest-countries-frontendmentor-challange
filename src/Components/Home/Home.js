@@ -2,23 +2,18 @@
 import React, { useEffect, useState } from "react";
 import "./home.scss";
 import { Link } from "react-router-dom";
-import axios from "axios";
+import { useSelector, useDispatch } from "react-redux";
+import { getCountries } from "../../redux/actions/getCountriesAction";
 
 function Home() {
-  const [countries, setCountries] = useState();
-  const [error, setError] = useState();
   const [searchCountry, setSearchCountry] = useState("");
   const [loadedItem, setLoadedItem] = useState(50);
-
-  const getCountries = async () =>
-    await axios
-      .get("https://restcountries.com/v2/all")
-      .then((response) => setCountries(response.data.slice(0, loadedItem)))
-      .catch((err) => setError(err));
+  const countries = useSelector((state) => state.getCountries.countries);
+  const dispatch = useDispatch();
 
   useEffect(() => {
-    getCountries();
-  }, [loadedItem]);
+    dispatch(getCountries());
+  }, []);
 
   // Copy Unique Region Names List for Dropdown List
   const uniqueRegions = [
@@ -37,9 +32,7 @@ function Home() {
   const loadMoreHandler = (incrementNumber) => {
     setLoadedItem(loadedItem + incrementNumber);
   };
-  error && console.log("ERROR from API:", error);
 
-  console.log(loadedItem);
   return (
     <>
       <div className="homepage-wrapper">
