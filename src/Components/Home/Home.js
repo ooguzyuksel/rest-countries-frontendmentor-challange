@@ -7,7 +7,6 @@ import { getCountries } from "../../redux/actions/getCountriesAction";
 
 function Home() {
   const [searchCountry, setSearchCountry] = useState("");
-  const [loadedItem, setLoadedItem] = useState(50);
   const countries = useSelector((state) => state.getCountries.countries);
   const dispatch = useDispatch();
 
@@ -27,10 +26,6 @@ function Home() {
 
   const countryDetailHandler = (countryName) => {
     localStorage.setItem("selectedCountry", countryName);
-  };
-
-  const loadMoreHandler = (incrementNumber) => {
-    setLoadedItem(loadedItem + incrementNumber);
   };
 
   return (
@@ -114,15 +109,6 @@ function Home() {
               </Link>
             ))}
         </div>
-        {/* LOAD MORE SECTION */}
-        {loadedItem < 250 && (
-          <div className="load-more-wrapper">
-            <button onClick={() => loadMoreHandler(50)}>LOAD MORE</button>
-            <button onClick={() => loadMoreHandler(250)}>
-              LOAD ALL COUNTRIES
-            </button>
-          </div>
-        )}
       </div>
     </>
   );

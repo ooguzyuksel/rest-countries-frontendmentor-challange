@@ -1,29 +1,28 @@
 /* eslint-disable react-hooks/exhaustive-deps */
-import React, { useState, useEffect } from "react";
-import axios from "axios";
 import "./countrydetail.scss";
+import React, { useEffect } from "react";
+import { useSelector, useDispatch } from "react-redux";
+import { getCountryDetail } from "../../redux/actions/getCountryDetailAction";
 
 function CountryDetail() {
-  const selectedCountryFromDB = localStorage.getItem("selectedCountry");
-  const [countryDetail, setCountryDetail] = useState("");
+  const dispatch = useDispatch();
+  const countryDetail = useSelector(
+    (state) => state?.getCountryDetail?.countryDetail
+  );
   const currency =
     countryDetail?.currencies && Object.entries(countryDetail?.currencies);
   const languages =
     countryDetail?.languages && Object.entries(countryDetail?.languages);
-  const borders =
-    countryDetail?.borders && countryDetail?.borders?.map((item) => item);
 
   useEffect(() => {
-    getCountryDetail(selectedCountryFromDB);
+    dispatch(getCountryDetail(localStorage.getItem("selectedCountry")));
   }, []);
 
-  const getCountryDetail = async (countryCode) =>
-    await axios
-      .get(`https://restcountries.com/v3.1/alpha/${countryCode}`)
-      .then((response) => setCountryDetail(response.data[0]))
-      .catch((err) => console.log(err));
-
-  console.log(borders);
+  // Functions
+  const borderCountryClickHandler = (borderCountry) => {
+    localStorage.setItem("selectedCountry", borderCountry);
+    dispatch(getCountryDetail(localStorage.getItem("selectedCountry")));
+  };
 
   return (
     <div className="country-detail-wrapper">
@@ -103,7 +102,12 @@ function CountryDetail() {
               <div className="border-countries">
                 {countryDetail?.borders &&
                   countryDetail?.borders?.map((item, index) => (
-                    <button key={index}>{item}</button>
+                    <button
+                      key={index}
+                      onClick={() => borderCountryClickHandler(item)}
+                    >
+                      {item}
+                    </button>
                   ))}
                 {!countryDetail?.borders && (
                   <span>This country has no borders to another country.</span>
