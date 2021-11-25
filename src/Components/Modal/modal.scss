@@ -1,0 +1,26 @@
+.modal-wrapper {
+  width: 100%;
+  min-height: 100vh;
+  position: fixed;
+  top: 0;
+  left: 0;
+  background-color: rgba(0, 0, 0, 0.7);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.button-container {
+  display: flex;
+  justify-content: flex-end;
+}
+
+.modal-close-button {
+  padding: 7px 50px;
+  font-size: 1.2rem;
+  border: none;
+  margin-bottom: 5px;
+  border-radius: 7px;
+  cursor: pointer;
+
+}

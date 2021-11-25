@@ -89,7 +89,7 @@ function Home() {
                 className="homepage-card-item"
                 key={`${country.name}${country.area}`}
                 onClick={() => countryDetailHandler(country.alpha3Code)}
-                to="/countrydetail/"
+                to="/countrydetail"
               >
                 <img src={country.flag} alt="test" className="country-flag" />
                 <div className="card-info">

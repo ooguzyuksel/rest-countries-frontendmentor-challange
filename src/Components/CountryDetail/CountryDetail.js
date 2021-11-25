@@ -1,11 +1,16 @@
 /* eslint-disable react-hooks/exhaustive-deps */
 import "./countrydetail.scss";
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import { getCountryDetail } from "../../redux/actions/getCountryDetailAction";
+import { useNavigate } from "react-router-dom";
+import Modal from "../Modal/Modal";
 
 function CountryDetail() {
+  let navigate = useNavigate();
   const dispatch = useDispatch();
+
+  const [modalController, setModalController] = useState(false);
   const countryDetail = useSelector(
     (state) => state?.getCountryDetail?.countryDetail
   );
@@ -13,6 +18,8 @@ function CountryDetail() {
     countryDetail?.currencies && Object.entries(countryDetail?.currencies);
   const languages =
     countryDetail?.languages && Object.entries(countryDetail?.languages);
+  const lat = countryDetail?.latlng && countryDetail?.latlng[0];
+  const long = countryDetail?.latlng && countryDetail?.latlng[1];
 
   useEffect(() => {
     dispatch(getCountryDetail(localStorage.getItem("selectedCountry")));
@@ -24,11 +31,23 @@ function CountryDetail() {
     dispatch(getCountryDetail(localStorage.getItem("selectedCountry")));
   };
 
+  const goBackHandler = () => {
+    navigate(-1);
+  };
+
   return (
     <div className="country-detail-wrapper">
       <div className="country-detail-container">
         <div className="back-button">
-          <button>Back</button>
+          <button onClick={goBackHandler}>
+            <i className="fas fa-long-arrow-alt-left"></i>
+            <span>Back</span>
+          </button>
+
+          <button>
+            <i className="fas fa-map-marked-alt"></i>
+            <span onClick={() => setModalController(true)}>Go To Map</span>
+          </button>
         </div>
 
         <div className="country-info-wrapper">
@@ -117,6 +136,10 @@ function CountryDetail() {
           </div>
         </div>
       </div>
+      {/* Modal Controlling Section */}
+      {modalController && (
+        <Modal setModalController={setModalController} lat={lat} long={long} />
+      )}
     </div>
   );
 }
