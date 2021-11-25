@@ -72,6 +72,7 @@
 
 .border-div {
   display: flex;
+  padding-bottom: 50px;
 }
 
 .back-button {
@@ -100,7 +101,15 @@
 
 
 @media only screen and (max-width: 768px) {
+
   .country-info-wrapper {
     flex-direction: column;
   }
+
+  .middle-info-container {
+    flex-direction: column;
+    gap: 50px;
+  }
+
+
 }
