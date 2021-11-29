@@ -20,3 +20,24 @@
   background-color: transparent;
   padding: 10px;
 }
+
+.go-to-top-wrapper {
+  position: fixed;
+  right: 25px;
+  bottom: 25px;
+  cursor: pointer;
+
+
+}
+
+.go-to-top-container {
+  padding: 5px;
+  font-size: 1.3rem;
+}
+
+@media only screen and (max-width: 769px) {
+
+  .where-tag {
+    font-size: 0.9rem;
+  }
+}

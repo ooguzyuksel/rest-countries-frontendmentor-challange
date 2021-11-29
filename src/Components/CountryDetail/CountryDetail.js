@@ -25,6 +25,10 @@ function CountryDetail() {
     dispatch(getCountryDetail(localStorage.getItem("selectedCountry")));
   }, []);
 
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
+
   // Functions
   const borderCountryClickHandler = (borderCountry) => {
     localStorage.setItem("selectedCountry", borderCountry);

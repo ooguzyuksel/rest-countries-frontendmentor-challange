@@ -20,7 +20,8 @@
   .homepage-card-item,
   .back-button>button,
   button,
-  .modal-close-button {
+  .modal-close-button,
+  .go-to-top-wrapper {
     background-color: $darkBlue;
     color: $white;
   }
@@ -28,5 +29,10 @@
   input,
   button {
     background-color: transparent;
+  }
+
+  .go-to-top-wrapper {
+    border: $white 1px solid;
+    border-radius: 7px;
   }
 }

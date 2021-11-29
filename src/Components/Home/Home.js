@@ -31,6 +31,7 @@ function Home() {
   return (
     <>
       <div className="homepage-wrapper">
+        
         {/* Top Input Side */}
         <div className="homepage-wrapper-form-area">
           <div className="form-input-area">
@@ -109,6 +110,7 @@ function Home() {
               </Link>
             ))}
         </div>
+        
       </div>
     </>
   );
