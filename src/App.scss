@@ -1,4 +1,32 @@
+@import "./sass/colors";
+
 .leaflet-container {
   width: 80vw;
   height: 70vh;
+}
+
+
+.light {
+  background-color: $veryLightGray;
+  color: $veryDarkBlueLM;
+}
+
+.dark {
+  background-color: $veryDarkBlueDM;
+  color: $white;
+
+  input,
+  select,
+  .homepage-card-item,
+  .back-button>button,
+  button,
+  .modal-close-button {
+    background-color: $darkBlue;
+    color: $white;
+  }
+
+  input,
+  button {
+    background-color: transparent;
+  }
 }

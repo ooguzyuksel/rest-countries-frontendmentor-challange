@@ -1,8 +1,9 @@
 .homepage-wrapper {
   width: 100%;
+  min-height: 100vh;
   display: flex;
   flex-direction: column;
-  justify-content: center;
+  justify-content: flex-start;
   align-items: center;
   padding-bottom: 50px;
 }
@@ -20,19 +21,21 @@
   max-width: 85%;
   width: 100%;
   display: flex;
-  justify-content: space-between;
+  justify-content: flex-start;
   flex-wrap: wrap;
-  gap: 25px;
+  gap: 70px;
+
+
 
   .card-info {
     display: flex;
     flex-direction: column;
 
-    & > b {
+    &>b {
       margin: 10px 0;
     }
 
-    & > small {
+    &>small {
       margin: 2px 0;
       font-size: 0.7rem;
     }
@@ -49,6 +52,7 @@
   box-shadow: 0px 10px 27px -9px rgba(0, 0, 0, 0.5);
   text-decoration: none;
   color: black;
+  // margin: 0 50px 50px 0;
 }
 
 .country-flag {
@@ -66,7 +70,7 @@
   box-shadow: 0px 10px 27px -9px rgba(0, 0, 0, 0.5);
 
   // Left Input Side
-  & > input {
+  &>input {
     border: none;
 
     &:focus {
@@ -82,6 +86,7 @@
   border-radius: 7px;
   box-shadow: 0px 10px 27px -9px rgba(0, 0, 0, 0.5);
   border: none;
+
   &:focus {
     outline: none;
   }
@@ -104,6 +109,7 @@
   .homepage-wrapper-card-area {
     justify-content: center;
   }
+
   .homepage-wrapper-form-area {
     display: flex;
     flex-direction: column;
@@ -111,12 +117,13 @@
     align-items: flex-start;
     height: 150px;
   }
+
   .form-input-area {
     width: 100%;
     box-shadow: 0px 10px 27px -9px rgba(0, 0, 0, 0.5);
     margin: 15px 0;
 
-    & > input {
+    &>input {
       width: 99%;
     }
   }
