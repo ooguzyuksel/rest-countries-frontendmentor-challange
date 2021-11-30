@@ -1,10 +1,10 @@
-# Frontend Mentro Rest Countries Project | Oğuzhan Yüksel
+# Frontend Mentor Rest Countries Project | Oğuzhan Yüksel
 
 A website that shows you and information of countries such as Polpulation, Capital, Currency, Border Countries and location in the world over realtime map.
 
 Don't forget to make interchanges between dark and light modes :)
 
-## Frontend Mentro Rest Countries Project
+## Frontend Mentor Rest Countries Project
 
 You can view the site here
 [Click Me](https://tender-hawking-bcd353.netlify.app/)
